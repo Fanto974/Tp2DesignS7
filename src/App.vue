@@ -1,47 +1,45 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { computed, watch } from 'vue'
+import { useStore } from 'vuex'
+import NavBar from './components/NavBar.vue'
+
+const store = useStore()
+
+const isAuthenticated = computed(function () {
+    return store.getters['auth/isAuthenticated']
+})
+
+watch(
+    isAuthenticated,
+    function (loggedIn) {
+        if (loggedIn) {
+            store.dispatch('game/startAutoProduction')
+        } else {
+            store.dispatch('game/stopAutoProduction')
+        }
+    },
+    { immediate: true }
+)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <div class="app">
+        <NavBar v-if="isAuthenticated" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+        <main class="content">
+            <router-view />
+        </main>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.app {
+    width: 100%;
+    min-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.content {
+    width: 100%;
+    padding: 1.5rem 2.5rem;
 }
 </style>

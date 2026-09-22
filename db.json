@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "role": "admin",
+      "totalBooks": 0
+    },
+    {
+      "id": "2",
+      "username": "mathis",
+      "password": "1234",
+      "role": "player",
+      "totalBooks": 202709.49999999933
+    }
+  ],
+  "saves": [
+    {
+      "id": "2",
+      "userId": "2",
+      "books": 17132.499999999993,
+      "totalBooks": 202709.49999999933,
+      "ownedUpgrades": {
+        "pen": 38,
+        "writer": 32,
+        "library": 20,
+        "printing": 11,
+        "gutenberg": 1,
+        "publisher": 3
+      }
+    }
+  ],
+  "challenges": [
+    {
+      "challengerId": "2",
+      "challengerName": "mathis",
+      "challengerStart": 9495,
+      "opponentId": "1",
+      "opponentName": "admin",
+      "opponentStart": 0,
+      "targetBooks": 1000,
+      "status": "completed",
+      "winnerId": "2",
+      "winnerName": "mathis",
+      "createdAt": "2026-09-22T15:25:34.605Z",
+      "id": "QXli-wZ20rw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

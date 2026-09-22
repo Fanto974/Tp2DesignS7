@@ -29,11 +29,23 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Lancer le projet
+
+Le jeu a besoin de deux serveurs en parallèle (deux terminaux) :
+
+```sh
+npm run server
+```
+
+Lance json-server sur http://localhost:3000, qui sert les données de `db.json` (utilisateurs, sauvegardes, défis).
 
 ```sh
 npm run dev
 ```
+
+Lance l'application Vue sur http://localhost:5173.
+
+Comptes de test : `admin` / `admin` (administrateur) ou `mathis` / `1234` (joueur).
 
 ### Type-Check, Compile and Minify for Production
 
